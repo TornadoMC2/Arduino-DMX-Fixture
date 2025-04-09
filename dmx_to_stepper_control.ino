@@ -28,8 +28,10 @@ void setup() {
   stepperMotor.setMaxSpeed(maxSpeedVal);
   stepperMotor.enableOutputs();
   
+  /*
   Serial.begin(250000);
   Serial.println("AccelStepper linear DMXStepper (fast) controller started.");
+  */
 
   // Configure switch pins as inputs with pull-ups
   for (int i = 0; i < POSITION_NUM; i++) {
@@ -45,8 +47,10 @@ void loop() {
       encoded_state |= 1 << i;
   }
 
+  /*
   Serial.print("Current DMX Address: ");
   Serial.println(encoded_state);
+  */
 
   int angle = encoded_state;
   int speed = encoded_state + 1;
@@ -101,7 +105,8 @@ void loop() {
       stepperMotor.disableOutputs();
     }
   }
-
+    
+  /*
   // Debugging output:
   Serial.print("DMX Value: ");
   Serial.print(dmxValue);
@@ -109,4 +114,5 @@ void loop() {
   Serial.print(targetSteps);
   Serial.print(" | Current Position: ");
   Serial.println(stepperMotor.currentPosition());
+  */
 }
